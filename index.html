@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облік ліжкового фонду</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Ліва колонка: список пацієнтів -->
+        <div class="sidebar">
+            <h2>Список пацієнтів</h2>
+            <ul id="patient-list">
+                <!-- Тут з'являтимуться пацієнти -->
+            </ul>
+            <div id="patient-details" class="hidden">
+                <h3>Деталі пацієнта</h3>
+                <p id="details-name"></p>
+                <p id="details-diagnosis"></p>
+                <p id="details-department"></p>
+                <p id="details-ward"></p>
+                <p id="details-bed"></p>
+                <p id="details-arrival"></p>
+                <div id="discharge-section" class="hidden">
+                    <label>
+                        Дата виписки:
+                        <input type="date" id="discharge-date">
+                    </label>
+                    <button id="discharge-button">Виписати</button>
+                </div>
+                <p id="details-discharge" class="hidden"></p>
+            </div>
+        </div>
+
+        <!-- Середня колонка: форма -->
+        <div class="form-container">
+            <h2>Форма госпіталізації</h2>
+            <form id="patient-form">
+                <label>
+                    Прізвище та ім'я пацієнта:
+                    <input type="text" id="patient-name" required>
+                </label>
+                <label>
+                    Діагноз:
+                    <input type="text" id="diagnosis" required>
+                </label>
+                <label>
+                    Відділення:
+                    <select id="department" required>
+                        <option value="Кардіологія">Кардіологія</option>
+                        <option value="Неврологія">Неврологія</option>
+                        <option value="Хірургія">Хірургія</option>
+                    </select>
+                </label>
+                <label>
+                    Палата:
+                    <input type="number" id="ward" min="1" max="4" required>
+                </label>
+                <label>
+                    Ліжко:
+                    <input type="number" id="bed" min="1" max="5" required>
+                </label>
+                <label>
+                    Дата прибуття:
+                    <input type="date" id="arrival-date" required>
+                </label>
+                <button type="submit">Додати пацієнта</button>
+            </form>
+        </div>
+
+        <!-- Права колонка: графічне відображення -->
+        <div class="beds-container">
+            <h2 id="department-label">Кардіологія</h2>
+            <button id="prev-department">⬅️</button>
+            <button id="next-department">➡️</button>
+            <div id="beds">
+                <!-- Тут будуть з'являтися палати та ліжка -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
